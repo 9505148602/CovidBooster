@@ -1,0 +1,57 @@
+<div class="container">
+  <form (submit)="ss(userData.value)" #userData="ngForm">
+  <div class="mb-3">
+  <label>Name <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" placeholder="Enter your name" name="fname" ngModel #fname="ngModel" required>
+    <p class="text-danger" *ngIf="!fname.valid && fname.touched">Name Required</p>
+  </div>
+  <div class="mb-3">
+    <label>Mobile Number</label>
+      <input type="text"  class="form-control" id="num" name="num" ngModel #num="ngModel" required  minlength="10" maxlength="10" 
+      pattern="[6-9]{1}[0-9]{9}"
+      >
+      <p class="text-danger" *ngIf="!num.valid && num.touched">num is required</p>
+
+  </div>
+  
+  <div class="mb-3">
+    <label>Email ID</label>
+    <input type="email" class="form-control" name="mail" ngModel #mail="ngModel" required email>
+    <p class="text-danger" *ngIf="!mail.valid && mail.touched">Invalid email</p>
+  </div>
+
+
+  <div class="mb-3">
+    <label>Is Second vaccination done?</label>
+    <div class="form-check">
+    <input type="radio" class="form-check-input" value="Yes" name="dose" ngModel #dose="ngModel" required>yes
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" value="no" name="dose" ngModel #dose="ngModel" required>no
+      </div>
+      <p class="text-danger" *ngIf="!dose.valid && dose.touched">check</p>
+  </div>
+
+  <div class="mb-3">
+    <label>Date of Second vaccination</label>
+      <input type="date" class="form-control" name="dt" ngModel #dt="ngModel" required
+      >
+      <p class="text-danger" *ngIf="!dt.valid && dt.touched">date is required</p>
+    </div>
+<div class="mb-3">
+    <label>State</label>
+    <select class="form-control" name="st" ngModel #st="ngModel" required>
+      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+      <option value="Andhrapradesh">Andhrapradesh</option>
+      <option value="Telangana">Telangana</option>
+    </select>
+    <p class="text-danger" *ngIf="!st.valid && st.touched"> choose one</p>
+  </div>
+  
+  <div class="mb-3">
+    <input type="submit" class="btn btn-success">
+  </div>
+</form>
+
+
+</div>
